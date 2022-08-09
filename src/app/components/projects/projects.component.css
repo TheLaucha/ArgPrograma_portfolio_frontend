@@ -1,0 +1,26 @@
+/*Projects*/
+.card {
+  color: var(--black);
+  background-color: var(--yellow);
+}
+
+.btn-project-footer {
+  color: var(--white);
+  background-color: var(--dark_blue);
+  transition: all 0.2s;
+}
+
+.btn-project-footer:hover {
+  color: var(--white);
+  border: 1px solid var(--white);
+  background-color: var(--pink);
+}
+
+/* Modal */
+.modal{
+  color: var(--black);
+}
+
+.modal-content{
+  background-color: var(--yellow);
+}

@@ -1,0 +1,18 @@
+<div class="container p-3 vh-100 d-flex flex-column align-items-center justify-content-center">
+  <form #loginForm="ngForm" (ngSubmit)="onLogin()" class="form col-4">
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      <input type="text" class="form-control" id="username" name="username" required [(ngModel)]="username">
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" name="password" id="password" class="form-control" required
+      [(ngModel)]="password">
+    </div>
+    <button type="submit" class="btn w-100 btn-primary">Login</button>
+  </form>
+  <div class="col-4">
+    <button (click)="loginComoInvitado()" class="btn w-100 btn-warning my-2">INGRESAR COMO INVITADO</button>
+  </div>
+</div>
+

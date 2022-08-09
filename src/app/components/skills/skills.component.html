@@ -1,0 +1,352 @@
+<div class="row">
+  <p class="h1 text-center mb-5">Habilidades</p>
+  <div *ngIf="admin" class="row mb-5">
+    <div class="col-12 text-center">
+      <a
+          (click)="onOpenModal('add')"
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#addSkillModal"
+          class="btn btn-success tooltips"
+          >Add Skill</a
+        >
+    </div>
+  </div>
+  <div class="col-12 col-md-4 d-flex flex-column">
+    <header class="d-flex flex-column align-items-center">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="42"
+        height="42"
+        fill="#ffab4c"
+        class="bi bi-tv"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M2.5 13.5A.5.5 0 0 1 3 13h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zM13.991 3l.024.001a1.46 1.46 0 0 1 .538.143.757.757 0 0 1 .302.254c.067.1.145.277.145.602v5.991l-.001.024a1.464 1.464 0 0 1-.143.538.758.758 0 0 1-.254.302c-.1.067-.277.145-.602.145H2.009l-.024-.001a1.464 1.464 0 0 1-.538-.143.758.758 0 0 1-.302-.254C1.078 10.502 1 10.325 1 10V4.009l.001-.024a1.46 1.46 0 0 1 .143-.538.758.758 0 0 1 .254-.302C1.498 3.078 1.675 3 2 3h11.991zM14 2H2C0 2 0 4 0 4v6c0 2 2 2 2 2h12c2 0 2-2 2-2V4c0-2-2-2-2-2z"
+        />
+      </svg>
+      <h6 class="h5 mt-2">Front-end</h6>
+    </header>
+    <hr />
+    <main>
+      <div *ngFor="let skill of skillsFront" class="d-flex align-items-center justify-content-between ">
+        <span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-dot"
+            viewBox="0 0 16 16"
+          >
+            <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" /></svg
+          >
+          <span class="fw-semibold fs-5 font-monospace m-0">{{skill.name}}</span>
+        </span>
+        <span *ngIf="admin">
+          <a
+            (click)="onOpenModal('edit', skill)"
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#editSkillModal"
+            class="btn btn-primary tooltips"
+            >Edit</a
+          >
+          <a
+            (click)="onOpenModal('delete', skill)"
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#deleteSkillModal"
+            class="btn btn-danger tooltips ms-2"
+            >Delete</a
+          >
+        </span>
+      </div>
+    </main>
+  </div>
+  <div class="col-12 col-md-4 d-flex flex-column">
+    <header class="d-flex flex-column align-items-center">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="42"
+        height="42"
+        fill="#ffab4c"
+        class="bi bi-file-bar-graph"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M4.5 12a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-1zm3 0a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1zm3 0a.5.5 0 0 1-.5-.5v-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5h-1z"
+        />
+        <path
+          d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4zm0 1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"
+        />
+      </svg>
+      <h6 class="h5 mt-2">Back-end</h6>
+    </header>
+    <hr />
+    <main>
+      <div *ngFor="let skill of skillsBack" class="d-flex align-items-center justify-content-between ">
+        <span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-dot"
+            viewBox="0 0 16 16"
+          >
+            <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" /></svg
+          >
+          <span class="fw-semibold fs-5 font-monospace m-0">{{skill.name}}</span>
+        </span>
+        <span *ngIf="admin">
+          <a
+            (click)="onOpenModal('edit', skill)"
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#editSkillModal"
+            class="btn btn-primary tooltips"
+            >Edit</a
+          >
+          <a
+            (click)="onOpenModal('delete', skill)"
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#deleteSkillModal"
+            class="btn btn-danger tooltips ms-2"
+            >Delete</a
+          >
+        </span>
+      </div>
+    </main>
+  </div>
+  <div class="col-12 col-md-4 d-flex flex-column">
+    <header class="d-flex flex-column align-items-center">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="42"
+        height="42"
+        fill="#ffab4c"
+        class="bi bi-tools"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z"
+        />
+      </svg>
+      <h6 class="h5 mt-2">Others</h6>
+    </header>
+    <hr />
+    <main>
+      <div *ngFor="let skill of skillsOther" class="d-flex align-items-center justify-content-between ">
+        <span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-dot"
+            viewBox="0 0 16 16"
+          >
+            <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" /></svg
+          >
+          <span class="fw-semibold fs-5 font-monospace m-0">{{skill.name}}</span>
+        </span>
+        <span *ngIf="admin">
+          <a
+            (click)="onOpenModal('edit', skill)"
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#editSkillModal"
+            class="btn btn-primary tooltips"
+            >Edit</a
+          >
+          <a
+            (click)="onOpenModal('delete', skill)"
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#deleteSkillModal"
+            class="btn btn-danger tooltips ms-2"
+            >Delete</a
+          >
+        </span>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- Add Skill Modal -->
+<div
+  class="modal fade"
+  id="addSkillModal"
+  tabindex="-1"
+  aria-labelledby="addSkillModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Skill</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body fw-semibold">
+        <form #addForm="ngForm" (ngSubmit)="onAddSkill(addForm)">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              name="name"
+              placeholder="Name"
+              required
+              ngModel
+            />
+          </div>
+          <div class="mb-3">
+            <label for="name" class="form-label">Type</label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="type" id="front" value="front" ngModel>
+              <label class="form-check-label" for="front">
+                Front-end
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="type" id="back" value="back" ngModel>
+              <label class="form-check-label" for="back">
+                Back-end
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="type" id="other" value="other" ngModel>
+              <label class="form-check-label" for="other">
+                Other
+              </label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              id="add-skill-close-btn"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Edit Skill Modal -->
+<div
+  class="modal fade"
+  id="editSkillModal"
+  tabindex="-1"
+  aria-labelledby="editSkillModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Skill</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form #editForm="ngForm">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              name="name"
+              placeholder="Name"
+              required
+              ngModel="{{ editSkill?.name }}"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            id="id"
+            name="id"
+            ngModel="{{ editSkill?.id }}"
+          />
+          <div class="modal-footer">
+            <button
+              type="button"
+              id="edit-skill-close-btn"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              (click)="onUpdateSkill(editForm.value)"
+              type="button"
+              class="btn btn-primary"
+            >
+              Save changes
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Delete Skill Modal -->
+<div
+  class="modal fade"
+  id="deleteSkillModal"
+  tabindex="-1"
+  aria-labelledby="deleteSkillModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete Skill</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete skill {{ deleteSkill?.name }}</p>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          id="delete-skill-close-btn"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >
+          No
+        </button>
+        <button
+          (click)="onDeleteSkill(deleteSkill?.id)"
+          type="button"
+          class="btn btn-danger"
+        >
+          Yes
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

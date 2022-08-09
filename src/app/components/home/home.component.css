@@ -1,0 +1,56 @@
+* {
+  /* colors */
+  --black: #2c272e;
+  --white: #faedf0;
+  --dark_blue: #142f43;
+  --yellow: #ffab4c;
+  --pink: #ff5f7e;
+  --purple: #b000b9;
+}
+
+/*Navbar*/
+
+.navbar {
+  background-color: var(--yellow);
+}
+
+/* General */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+#header,
+#habilidades,
+#proyectos,
+#sobre-mi {
+  color: var(--white);
+}
+
+/*Header*/
+
+.btn-header {
+  background-color: var(--yellow);
+  transition: all 0.2s;
+}
+.btn-header:hover {
+  color: var(--white);
+  border: 1px solid var(--white);
+  background-color: var(--pink);
+}
+
+.btn-logout{
+  background-color: var(--white);
+  transition: all 0.2s;
+}
+
+.btn-logout:hover {
+  color: var(--white);
+  border: 1px solid var(--white);
+  background-color: #D61C4E;
+}
+
+/*Sobre mi*/
+
+.text-yellow {
+  color: var(--yellow);
+}

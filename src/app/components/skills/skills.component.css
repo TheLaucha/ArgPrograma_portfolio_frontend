@@ -1,0 +1,8 @@
+/* Modal */
+.modal{
+  color: var(--black);
+}
+
+.modal-content{
+  background-color: var(--yellow);
+}
