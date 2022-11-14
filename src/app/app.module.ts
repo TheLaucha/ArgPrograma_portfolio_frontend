@@ -9,9 +9,17 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { IniciarSesionComponent } from './components/iniciar-sesion/iniciar-sesion.component';
 import { HomeComponent } from './components/home/home.component';
 import { SkillsComponent } from './components/skills/skills.component';
+import { EducacionComponent } from './components/educacion/educacion.component';
 
 @NgModule({
-  declarations: [AppComponent, ProjectsComponent, IniciarSesionComponent, HomeComponent, SkillsComponent],
+  declarations: [
+    AppComponent,
+    ProjectsComponent,
+    IniciarSesionComponent,
+    HomeComponent,
+    SkillsComponent,
+    EducacionComponent,
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,

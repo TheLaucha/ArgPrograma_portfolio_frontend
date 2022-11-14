@@ -1,0 +1,250 @@
+<div class="row">
+  <p class="h1 text-center mb-5">Educacion</p>
+  <div *ngIf="admin" class="row mb-5">
+    <div class="col-12 text-center">
+      <a
+        (click)="onOpenModal('add')"
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#addEducacionModal"
+        class="btn btn-success tooltips"
+        >Add Educacion</a
+      >
+    </div>
+  </div>
+  <div class="col-12 col-md-4 d-flex flex-column">
+    <hr />
+    <main>
+      <div
+        *ngFor="let edu of educacion"
+        class="d-flex flex-column align-items-center justify-content-between gap-3"
+      >
+        <div class="d-flex educacion_box gap-3">
+          <img
+            src="https://www.svgrepo.com/show/273992/check.svg"
+            class="check_logo"
+            alt=""
+          />
+          <div class="d-flex flex-column">
+            <span class="fw-semibold fs-5 font-monospace m-0">{{
+              edu.name
+            }}</span>
+            <span class="fw-semibold fs-5 font-monospace m-0">
+              {{ edu.description }}
+            </span>
+          </div>
+        </div>
+        <span *ngIf="admin">
+          <a
+            (click)="onOpenModal('edit', edu)"
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#editEducacionModal"
+            class="btn btn-primary tooltips"
+            >Edit</a
+          >
+          <a
+            (click)="onOpenModal('delete', edu)"
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#deleteEducacionModal"
+            class="btn btn-danger tooltips ms-2"
+            >Delete</a
+          >
+        </span>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- Add Educacion Modal -->
+<div
+  class="modal fade"
+  id="addEducacionModal"
+  tabindex="-1"
+  aria-labelledby="addEducacionModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Educacion</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body fw-semibold">
+        <form #addForm="ngForm" (ngSubmit)="onAddEducacion(addForm)">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              name="name"
+              placeholder="Name"
+              required
+              ngModel
+            />
+          </div>
+          <div class="mb-3">
+            <label for="name" class="form-label">Type</label>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="type"
+                id="front"
+                value="front"
+                ngModel
+              />
+              <label class="form-check-label" for="front"> Front-end </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="type"
+                id="back"
+                value="back"
+                ngModel
+              />
+              <label class="form-check-label" for="back"> Back-end </label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="type"
+                id="other"
+                value="other"
+                ngModel
+              />
+              <label class="form-check-label" for="other"> Other </label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              id="add-educacion-close-btn"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Edit Educacion Modal -->
+<div
+  class="modal fade"
+  id="editEducacionModal"
+  tabindex="-1"
+  aria-labelledby="editEducacionModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Educacion</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form #editForm="ngForm">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              name="name"
+              placeholder="Name"
+              required
+              ngModel="{{ editEducacion?.name }}"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            id="id"
+            name="id"
+            ngModel="{{ editEducacion?.id }}"
+          />
+          <div class="modal-footer">
+            <button
+              type="button"
+              id="edit-educacion-close-btn"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              (click)="onUpdateEducacion(editForm.value)"
+              type="button"
+              class="btn btn-primary"
+            >
+              Save changes
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Delete Educacion Modal -->
+<div
+  class="modal fade"
+  id="deleteEducacionModal"
+  tabindex="-1"
+  aria-labelledby="deleteEducacionModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete Educacion</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <p>
+          Are you sure you want to delete educacion {{ deleteEducacion?.name }}
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          id="delete-educacion-close-btn"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >
+          No
+        </button>
+        <button
+          (click)="onDeleteEducacion(deleteEducacion?.id)"
+          type="button"
+          class="btn btn-danger"
+        >
+          Yes
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

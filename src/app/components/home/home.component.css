@@ -14,6 +14,10 @@
   background-color: var(--yellow);
 }
 
+.argLogo {
+  width: 120px;
+}
+
 /* General */
 a {
   color: inherit;
@@ -38,7 +42,7 @@ a {
   background-color: var(--pink);
 }
 
-.btn-logout{
+.btn-logout {
   background-color: var(--white);
   transition: all 0.2s;
 }
@@ -46,7 +50,7 @@ a {
 .btn-logout:hover {
   color: var(--white);
   border: 1px solid var(--white);
-  background-color: #D61C4E;
+  background-color: #d61c4e;
 }
 
 /*Sobre mi*/

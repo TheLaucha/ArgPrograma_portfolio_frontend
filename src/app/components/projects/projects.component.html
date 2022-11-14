@@ -1,13 +1,13 @@
 <div *ngIf="admin" class="row">
   <div class="col-12 text-center mb-3">
     <a
-        (click)="onOpenModal('add')"
-        type="button"
-        data-bs-toggle="modal"
-        data-bs-target="#addProjectModal"
-        class="btn btn-success tooltips"
-        >Add Project</a
-      >
+      (click)="onOpenModal('add')"
+      type="button"
+      data-bs-toggle="modal"
+      data-bs-target="#addProjectModal"
+      class="btn btn-success tooltips"
+      >Add Project</a
+    >
   </div>
 </div>
 <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -22,13 +22,13 @@
       </div>
       <div class="card-footer d-flex justify-content-evenly">
         <a
-          href="{{project?.liveDemoUrl}}"
+          href="{{ project?.liveDemoUrl }}"
           target="_blank"
           class="btn btn-project-footer tooltips"
           >Live Demo</a
         >
         <a
-          href="{{project?.githubRepo}}"
+          href="{{ project?.githubRepo }}"
           target="_blank"
           class="btn btn-project-footer tooltips"
           >Github</a
@@ -245,7 +245,7 @@
               placeholder="https://github.com/user/reponame"
               name="githubRepo"
               required
-              ngModel="{{ editProject?.githubRepo}}"
+              ngModel="{{ editProject?.githubRepo }}"
             />
           </div>
           <div class="modal-footer">
